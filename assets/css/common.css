@@ -1,0 +1,27 @@
+.youtube-red-filter{
+  filter: invert(10%) sepia(96%) saturate(7084%) hue-rotate(15deg) brightness(107%) contrast(121%);
+}
+.white-filter {
+  filter: invert(100%) sepia(89%) saturate(0%) hue-rotate(228deg) brightness(113%) contrast(101%);
+}
+.border-dark-grey {
+  border-color: #323232;
+}
+.btn-dark-grey {
+  background-color: #323232;
+}
+
+/* large screen */
+@media (min-width: 992px) {
+  navbar.col-lg-10 {
+      flex: 0 0 auto;
+      width: 83.33333333% !important;
+  }
+}
+/* medium screen */
+@media (min-width: 768px) {
+  navbar .col-md-10 {
+      flex: 0 0 auto;
+      width: 83.33333333% !important;
+  }
+}

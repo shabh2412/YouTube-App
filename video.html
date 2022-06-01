@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Video Player</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <link rel="stylesheet" href="./assets/css/common.css">
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg bg-dark mt-0 p-2">
+      <div class="container-fluid text-white justify-content-between">
+          <a href="./index.html" class="navbar-brand text-white">
+              <span>
+                  <img src="./assets/logo.svg" alt="Logo" class="youtube-red-filter">
+              </span>
+              YouTube<sup class="fw-light">IN</sup></a>
+          <div class="container d-flex w-50 g-0 my-2">
+              <div class="col-lg-10 col-md-10 col-sm-12 text-white">
+                  <input id="searchInput" type="text" class="text-white form-control bg-black border-dark-grey rounded-0 py-2" placeholder="Search">
+              </div>
+              <div class="col-lg-2 col-md-2 col-sm-12">
+                  <button id="searchBtn" class="btn border-dark-grey btn-dark-grey rounded-0 px-4 py-2">
+                      <img src="./assets/search.svg" alt="search" class="white-filter">
+                  </button>
+              </div>
+          </div>
+          <div class="row">
+              <div class="col">
+                  <img src="./assets/cameraReels.svg" alt="" class="white-filter">
+              </div>
+              <div class="col">
+                  <img src="./assets/youtubeApps.svg" class="white-filter" alt="youtubeApps">
+              </div>
+              <div class="col">
+                  <img src="./assets/notificationBell.svg" alt="notificationBell" class="white-filter">
+              </div>
+              <div class="col">
+                  <img src="./assets/user.svg" alt="userImg" class="white-filter">
+              </div>
+          </div>
+      </div>
+  </nav>
+    <h1 id="title" class="text-center my-3"></h1>
+    <div class="w-75 ratio ratio-16x9 mx-auto">
+      <iframe src="" title="" allowfullscreen></iframe>
+    </div>
+  </body>
+</html>
+<script src="./video.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>

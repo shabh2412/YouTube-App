@@ -12,12 +12,16 @@ let searchMessageH3 = document.getElementById('searchMessage');
 let resultsDiv = document.getElementById('resultsContainer');
 
 let fetchPopularVideos = async () => {
+    // creating a constant url for fetching popular videos
     const popularVideosUrl = `https://youtube.googleapis.com/youtube/v3/videos?part=snippet&maxResults=20&chart=mostPopular&regionCode=IN&key=${api_key}`;
+    // if i've already fetched the popular videos, then i'm storing it in localStorage to avoid making the api request again and again. 
     let data = JSON.parse(localStorage.getItem('popularVideos'));
     if (data) {
+        // if data is found, then -> displayResults and return.
         displayResults(data, 'Popular Videos');
         return;
     }
+    // data not found in localStorage. fetch new data, save it in localStorage and displayResults.
     let response = await fetch (popularVideosUrl);
     data = await response.json();
     localStorage.setItem('popularVideos', JSON.stringify(data));
@@ -25,15 +29,16 @@ let fetchPopularVideos = async () => {
 }
 
 let searchYoutube = async () => {
-    // alert('Hi!');
+    // get the search term.
     let text = document.getElementById('searchInput').value;
+    // if search term is blank, then don't do anything.
     if(text === '') {
         resultsDiv.innerHTML = null;
         searchMessageH3.innerHTML = null;
         searchMessageH3.classList.remove('border-bottom');
         return;
     }
-    // i stored sample data in local storage to avoid exhausting my api quota.
+    // i stored sample data in local storage to avoid exhausting my api quota while testing the app ui.
     // TODO: remove/comment this localstorage code before publishing.
     // let data = JSON.parse(localStorage.getItem('youtubeData'));
     // if(data) {
@@ -68,14 +73,9 @@ function displayResults({items:results}, titleMsg) {
         let col = document.createElement('div');
         col.classList = 'col-lg-3 col-md-4 col-sm-6';
         let card = document.createElement('div');
-        // card.classList = 'card d-flex flex-row w-50 mx-auto';
         card.classList = 'card';
-        // card.style.width = '100%';
-        // card.style.height = '200px';
         let cardImg = document.createElement('img');
-        // cardImg.classList = 'card-img h-100';
         cardImg.classList = 'card-img-top';
-        // cardImg.style.height = '100%';
         cardImg.src = thumbnail;
 
         let cardBody = document.createElement('div');
@@ -97,15 +97,18 @@ function displayResults({items:results}, titleMsg) {
         col.append(card);
 
         card.addEventListener('click', ()=>{
+            // if the video play request is from search result, then id is in id.videoId
+            let obj = {};
             if(id.videoId) {
                 let videoId = id.videoId;
-                var obj = {
+                obj = {
                     title,
                     videoId
                 }
             }
+            // if the video play request is from home page / popular videos section, then you can directly use the id.
             else {
-                var obj = {
+                obj = {
                     title,
                     id
                 }

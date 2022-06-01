@@ -6,11 +6,14 @@ let iframe = document.querySelector('iframe');
 let displayVideo = ({title:videoTitle, videoId, id}) => {
   // console.log(videoTitle, videoId);
   title.innerText = videoTitle;
+  let src;
+  // if i get play request from popular videos, then id will contain the value of video id.
   if(id) {
-    var src = `${baseUrl}/${id}`;
+    src = `${baseUrl}/${id}`;
   }
+  // if i get play request from search results, then videoId will contain the value of video id.
   else if (videoId) {
-    var src = `${baseUrl}/${videoId}`;
+    src = `${baseUrl}/${videoId}`;
   }
   iframe.src = src;
   iframe.title = videoTitle;
